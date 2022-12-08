@@ -1,7 +1,7 @@
 
 function List(props){
-
-    function hendlerEnter(event,item){
+    
+    function hendlerKey(event,item){
         if (event.key == 'Enter'){
             item.title = event.target.value;
             props.onEditClass(item);
@@ -20,7 +20,7 @@ function List(props){
                                 className="destroy" itemtitle={item.title}>
                         </button>
                     </div>
-                    <input className="edit" onKeyDown={(event)=>hendlerEnter(event,item)} defaultValue={item.title}/>
+                    <input className="edit" onKeyDown={(event)=>hendlerKey(event,item)} key={item.title} defaultValue={item.title}/>
                 </li>
             ))}
         </ul>

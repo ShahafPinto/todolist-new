@@ -18,7 +18,6 @@ useEffect(()=>{
 
   const addTodo = (title)=>{
     const newTodos = todos.concat([{id: Date.now() ,title, completed: false, editing: false}]);
-    // console.log(todos);
     setTodos(newTodos);
     // todos = [...todos, {id: Date.now() ,title, completed: false}]; //עוד דרך בשינוי אדרת
   }
@@ -26,14 +25,13 @@ useEffect(()=>{
   const removeTodo = (todoToRemove)=>{ 
     const newTodos = todos.filter( currentTodo => currentTodo.id != todoToRemove.id);
     setTodos(newTodos);
-    // console.log(todos);
   }
 
 
   const clearAllCompleted = ()=>{ 
-    console.log('start to del in all completed:',todos);
+    // console.log('start to del in all completed:',todos);
     const newTodos = todos.filter(currentTodo => !currentTodo.completed);
-    console.log('after del all completed:',newTodos);
+    // console.log('after del all completed:',newTodos);
     setTodos(newTodos);
   }
 
@@ -62,7 +60,6 @@ const toggleAllItems = (checkedValue)=>{
   
 }
 const classToEditing= (item)=>{
-  // console.log('here');
   if (item.editing){
     item.editing = false;
   }else{

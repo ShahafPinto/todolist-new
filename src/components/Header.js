@@ -2,8 +2,9 @@
 function Header(props){
     function hendlerList(event){
         if (event.key == 'Enter'){
-            props.onAddItem(event.target.value);
-            // console.log(event.target.value);
+            const task = event.target.value;
+            event.target.value = '';
+            props.onAddItem(task);
         } 
     }
     return(
