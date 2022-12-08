@@ -15,7 +15,7 @@ function Main (props){
     return(
        <section className="main">
             <input className="toggle-all" type="checkbox" onChange={hendelToggleAll}/>
-            <List className="todo-list" items={props.items} onDellItem={props.onDellItem} onSetComplete={props.onSetComplete}></List>
+            <List className="todo-list" items={props.items} onDellItem={props.onDellItem} onSetComplete={props.onSetComplete} onEditFunc={props.onEditFunc}></List>
         </section> 
     );
 }

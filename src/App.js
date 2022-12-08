@@ -14,6 +14,9 @@ function App() {
 const [todos, setTodos] = useState([]);
 const [nonCompletedItems, setNonCompletedItems] = useState(0)
 let leftItemsCounter = nonCompletedItems;
+const [editClass, setEditClass] = useState(false);
+
+// const [completedClass, setCompletedClass] = useState(false);
 
 useEffect(()=>{
   const nonComplete = todos.filter(todo=> todo.completed !== true)
@@ -21,7 +24,7 @@ useEffect(()=>{
 }, [todos])
 
   const addTodo = (title)=>{
-    const newTodos = todos.concat([{id: Date.now() ,title, completed: false}]);
+    const newTodos = todos.concat([{id: Date.now() ,title, completed: false, editing: false}]);
     // console.log(todos);
     setTodos(newTodos);
     // todos = [...todos, {id: Date.now() ,title, completed: false}]; //עוד דרך בשינוי אדרת
@@ -50,12 +53,15 @@ useEffect(()=>{
       }) 
     if (checkedValue){
       leftItemsCounter -=1 
+      // completedClass = true
     }
     else{
       leftItemsCounter+=1
+      // completedClass = false
     }  
     
     setNonCompletedItems(leftItemsCounter);
+    // setCompletedClass(completedClass);
     console.log(todos);
     // setTodos(newTodos)
     // console.log('setcomplete done');
@@ -67,13 +73,21 @@ const toggleAllItems = (checkedValue)=>{
   console.log(newTodos);
   // setTodos(newTodos);
 }
-
+const classToEditing= (item)=>{
+  console.log('here');
+  if (item.editing){
+    item.editing = false;
+  }else{
+    item.editing = true;
+  }
+  setEditClass(item.editing);
+}
 
 
   return (
     <div className="todoapp">
       <Header onAddItem={addTodo} />
-      <Main items={todos} onToggleAll={toggleAllItems} onDellItem={removeTodo} onSetComplete={setComplete}/>
+      <Main items={todos} onToggleAll={toggleAllItems} onDellItem={removeTodo} onSetComplete={setComplete}  onEditFunc={classToEditing}/>
       <Footer onClearAll={clearAllCompleted} itemLeftCount={nonCompletedItems}/>
     </div>
   );
