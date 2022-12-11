@@ -1,26 +1,29 @@
+import {useContext} from "react";
+import {ListContex} from '../providers/list-context';
 
-function List(props){
-    
+function List(){
+    const {todos, setComplete, removeTodo, classToEditing} = useContext(ListContex);
+
     function hendlerKey(event,item){
         if (event.key == 'Enter'){
             item.title = event.target.value;
-            props.onEditClass(item);
+            classToEditing(item);
         }
     }
     return(
         
         <ul className="todo-list">
-            {props.items.map(item =>(
-                <li className= {'todo-list'+(item.completed ? ' completed' : '')+(item.editing? ' editing': '')}>
+            {todos.map(item =>(
+                <li key={item.id} className= {'todo-list'+(item.completed ? ' completed' : '')+(item.editing? ' editing': '')}>
                     <div className="view">
-                        <input onChange={(event)=>props.onSetComplete(item ,event.target.checked)} 
+                        <input onChange={(event)=>setComplete(item ,event.target.checked)} 
                                 className="toggle" type="checkbox" checked={item.completed} itemtitle={item.title}/>
-                        <label onDoubleClick={()=>props.onEditClass(item)}>{item.title}</label>
-                        <button onClick={()=>props.onDellItem(item)} 
+                        <label onDoubleClick={()=>classToEditing(item)}>{item.title}</label>
+                        <button onClick={()=>removeTodo(item)} 
                                 className="destroy" itemtitle={item.title}>
                         </button>
                     </div>
-                    <input className="edit" onKeyDown={(event)=>hendlerKey(event,item)} key={item.title} defaultValue={item.title}/>
+                    <input className="edit" onKeyDown={(event)=>hendlerKey(event,item)} defaultValue={item.title}/>
                 </li>
             ))}
         </ul>

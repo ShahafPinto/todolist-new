@@ -1,10 +1,16 @@
+import {useContext, useEffect, useRef, useState} from "react";
+import {ListContex} from '../providers/list-context';
 
-function Header(props){
+function Header(){
+    const { addTodo } = useContext( ListContex);
+
+    
+
     function hendlerList(event){
         if (event.key == 'Enter'){
             const task = event.target.value;
             event.target.value = '';
-            props.onAddItem(task);
+            addTodo(task);
         } 
     }
     return(
