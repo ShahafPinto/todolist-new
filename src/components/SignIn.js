@@ -1,21 +1,24 @@
-import React from 'react';
-import { useRef, useState } from 'react';
+import React, { useContext } from 'react';
+// import { useRef, useState } from 'react';
 import '../providers/list-context';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import {UsersContex} from '../providers/users-context';
+// import UseTodos from './useTodos';
 
 function SignIn() {
-    const [users,setUsers] = useState([]);
-    let newUsersList = users;
+  const {currentUserName,currentUserPassword,addNewUser} = useContext(UsersContex);
+    // const [users,setUsers] = useState([]);
+    // let newUsersList = users;
   
-    const currentUserName = useRef();
-    const currentUserPassword = useRef();
+    // const currentUserName = useRef();
+    // const currentUserPassword = useRef();
   
-    const addNewUser = ()=>{
-      newUsersList = users.concat([{name:currentUserName.current.value, password: currentUserPassword.current.value}]);
-      console.log(newUsersList);
-      return <Link to={'todos'}></Link>
-      // setUsers(newUsersList);
-    }
+    // const addNewUser = ()=>{
+    //   newUsersList = newUsersList.concat([{name:currentUserName.current.value, password: currentUserPassword.current.value}]);
+    //   console.log(newUsersList);
+    //   return <Link to={'todos'}></Link>
+    //   // setUsers(newUsersList);
+    // }
   return (
     <>    
         <input ref={currentUserName} type='text' placeholder={'enter username'}></input>

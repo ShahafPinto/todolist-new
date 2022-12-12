@@ -6,10 +6,14 @@ body {
 nav{
   background-color: lightgray;
   display: flex;
+  justify-content: space-around;
 }
 .navitem{
   padding: 2%;
   
+}
+.enteruser{
+  color: blue;
 }
 .newlistbutton{
   background-color: #de6a6a;

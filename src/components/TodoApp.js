@@ -4,12 +4,10 @@ import Main from './Main';
 import Footer from './Footer';
 import {ListContex} from '../providers/list-context';
 import UseTodos from './useTodos';
-// import { Link } from 'react-router-dom';
-// import ReactDOM from 'react-dom/client';
 
 function TodoApp({appName='Todos'}) {
     const todoApi = UseTodos();
-    
+
   return (
     <ListContex.Provider value={todoApi}>
         <div className="todoapp">
