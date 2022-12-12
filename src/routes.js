@@ -1,7 +1,7 @@
 import React from 'react';
 import App from './App';
 import SignIn from './components/SignIn';
-import TodoApp from './components/TodoApp';
+import Todos from './components/Todos';
 import Welcome from './components/Welcome';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         },
         {
             path: 'todos',
-            element: <TodoApp />
+            element: <Todos />
         },
         {
             path: 'sign-in',
