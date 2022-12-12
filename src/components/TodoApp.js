@@ -3,16 +3,15 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import {ListContex} from '../providers/list-context';
-import {TodosContex} from '../providers/todo-context';
 import UseTodos from './useTodos';
 
-function TodoApp() {
+function TodoApp({appName}) {
     const todoApi = UseTodos();
 
   return (
     <ListContex.Provider value={todoApi}>
         <div className="todoapp">
-            <Header/>
+            <Header title={appName}/>
             <Main />
             <Footer />
         </div>

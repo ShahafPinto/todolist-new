@@ -3,7 +3,10 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.newlistbutton{
+  background-color: #de6a6a;
+  padding: 2%;
+}
 button {
   margin: 0;
   padding: 0;
