@@ -5,7 +5,7 @@ import Footer from './Footer';
 import {ListContex} from '../providers/list-context';
 import UseTodos from './useTodos';
 
-function TodoApp({appName}) {
+function TodoApp({appName='Todos'}) {
     const todoApi = UseTodos();
 
   return (
